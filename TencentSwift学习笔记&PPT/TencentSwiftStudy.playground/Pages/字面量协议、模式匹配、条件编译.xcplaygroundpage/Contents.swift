@@ -132,3 +132,64 @@ default:
     break
 }
 
+
+//条件编译
+
+// 操作系统: macOS/iOS/...
+#if os(macOS) || os(iOS)
+// CPU架构: i386/x86_64/arm/arm64
+#elseif arch(x86_64) || arch(arm64)
+// swift版本
+#elseif swift(<5) && swift(>=3)
+// 模拟器
+#elseif targetEnvironment(simulator)
+// 可以导入某模块
+#elseif canImport(Foundation)
+
+#else
+#endif
+
+
+
+#if Debug
+
+#else
+#endif
+//自定义标记 且在DEBUG模式存在
+//Build Setting -> 搜swift compiler - custom
+// Active Compilation Conditions -> Debug后加+空格+MYTEST(自己的标记)
+// Other Swift Flags -> Debug后加 + -D +空格MYTEST(自己的标记)
+
+//文件 方法 行数
+print(#file, #line, #function)
+
+var sdsds: NSString = "dsdsdsdsd"
+sdsds.appending("3333")
+print(sdsds)
+
+var sddddd: String = "dsdsdsdsd"
+sddddd.appending("4444")
+
+
+//系统版本检测
+if #available(iOS 10, macOS 10.15.6, *){
+    // *表示除了前面的条件，其他平台都支持
+}
+
+//API可用性说明——类文件前面
+@available(iOS 10, macOS 10.15.6, *)
+
+struct Student {
+    //study 方法更换为 studys
+    @available(*, unavailable, renamed: "studys")
+    func study(){
+    }
+    //iOS 11 过期
+    @available(iOS, deprecated: 11)
+    func test(){
+    }
+}
+
+var s = Student()
+s.test()
+s.study()
