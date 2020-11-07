@@ -171,9 +171,10 @@ var sddddd: String = "dsdsdsdsd"
 sddddd.appending("4444")
 
 
-//系统版本检测
+//系统版本判断
 if #available(iOS 10, macOS 10.15.6, *){
     // *表示除了前面的条件，其他平台都支持
+    print("3333333")
 }
 
 //API可用性说明——类文件前面
@@ -192,4 +193,4 @@ struct Student {
 
 var s = Student()
 s.test()
-s.study()
+//s.study()
