@@ -35,6 +35,7 @@ test()
 @_silgen_name("functionName")
 func swift_sum()
 
+//桥接文件相关
 
 //OC调用Swift
 //1、xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式为：{targetName}-Swift.h
