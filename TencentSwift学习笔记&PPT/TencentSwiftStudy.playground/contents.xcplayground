@@ -25,5 +25,7 @@
         <page name='字面量协议、模式匹配、条件编译'/>
         <page name='从OC到Swift'/>
         <page name='函数式编程'/>
+        <page name='函数式编程前铺'/>
+        <page name='面向协议编程'/>
     </pages>
 </playground>

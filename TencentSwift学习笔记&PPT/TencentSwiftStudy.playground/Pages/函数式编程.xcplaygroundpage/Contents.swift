@@ -17,3 +17,4 @@ print((~add2)(30)(20)(10))
 
 //函子（Functor）
 // Array、Optional 支持map运算的类型，称为函子
+
