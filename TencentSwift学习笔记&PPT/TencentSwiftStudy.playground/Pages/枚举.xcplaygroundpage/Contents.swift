@@ -123,3 +123,45 @@ print(MemoryLayout<test>.alignment)
 print(MemoryLayout.size(ofValue: t))
 print(MemoryLayout.stride(ofValue: t))
 print(MemoryLayout.alignment(ofValue: t))
+
+
+enum fangjing{
+    case type(Int)
+    case type1(Int)
+    case type2(Int)
+    case type3(Int)
+}
+
+let dsds = fangjing.type(6)
+
+switch dsds {
+case .type(let sd):
+    print(sd)
+case.type1(let sd1):
+    print(sd1)
+case.type2(let sd2):
+    print(sd2)
+case.type3(let sd3):
+    print(sd3)
+}
+
+
+enum fangjing1: Int{
+    case type = 1
+    case type1
+    case type2
+    case type3
+}
+
+let dsdsdsd = fangjing1.type3
+switch dsdsdsd {
+    case .type:
+    fallthrough
+    case .type1:
+    fallthrough
+    case .type2:
+    fallthrough
+    case .type3:
+    print(dsdsdsd.rawValue)
+}
+

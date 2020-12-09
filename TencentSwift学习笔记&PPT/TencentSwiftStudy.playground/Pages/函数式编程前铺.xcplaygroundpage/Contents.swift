@@ -173,10 +173,31 @@ var num1 = num.map{ $0 * 2 }
 var num0 = num.map{ Optional.some($0*2) }
 //flatMap 发现是可选类型 就不会再包装一层
 var num2 = num.flatMap{ Optional.some($0*2) }
+
 print(num1)
 print(num0)
 print(num2)
 
+var ddfdf = [1,1,13,3,4,4,4,45]
+ddfdf.removeAll(keepingCapacity: true)
+ddfdf.append(contentsOf: 1...100)
+ddfdf.removeLast(10)
+ddfdf.swapAt(ddfdf.startIndex, ddfdf.endIndex-1)
+print(ddfdf)
+
+var ddfdf1 = [1,5,7,5,7,8,9,45]
+let index = ddfdf1.partition { dnum -> Bool in
+    dnum > 5
+}
+print("mmmmm index = \(index)")
+let p2221 = ddfdf1[..<index]
+let p3332 = ddfdf1[index...]
+print(p2221,p3332)
+
+var ddddd: String = "dsdsdsd"
+ddddd.insert(contentsOf :"eeee", at: ddddd.endIndex)
+ddddd.insert(contentsOf: "fffff", at: ddddd.index(before: ddddd.endIndex))
+print(ddddd)
 
 var num3: Int? = nil
 var num4 = num3.map{ Optional.some($0*2) }

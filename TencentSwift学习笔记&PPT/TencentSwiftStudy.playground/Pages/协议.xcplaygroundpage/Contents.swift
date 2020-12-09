@@ -197,3 +197,9 @@ class Stu: Person8 {
 var sss = Stu()
 print(sss.test())
 
+
+var see = ["2"]
+see.forEach{ str in
+    print("1111")
+}
+

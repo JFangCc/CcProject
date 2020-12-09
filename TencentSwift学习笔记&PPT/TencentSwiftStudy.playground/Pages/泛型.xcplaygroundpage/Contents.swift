@@ -106,3 +106,21 @@ class Stack2: Stackable1 {
 }
 
 //不透明类型 some
+
+//泛型
+func firstIndex<T: Equatable>(of valueFind: T, in array: [T]) -> Int?{
+    for(index, value) in array.enumerated(){
+        if value == valueFind {
+            return index
+        }
+    }
+    return nil
+}
+
+let names = ["fangjing", "dsdsds", "efefe"]
+let index = firstIndex(of: "fangjing", in: names)
+print(index!)
+
+let nums = [1, 2, 3]
+let index1 = firstIndex(of: 2, in: nums)
+print(index1!)
