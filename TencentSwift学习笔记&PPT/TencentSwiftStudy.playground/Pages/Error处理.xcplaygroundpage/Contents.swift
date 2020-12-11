@@ -50,7 +50,7 @@ func test() {
     }catch SomeError.outOfMemory {
         print("内存溢出")
     }catch{
-        
+        print(error)
     }
 }
 
@@ -118,3 +118,26 @@ func divide3(_ num1: Int, _ num2: Int) -> Int {
     fatalError("0不能作为除数")
 }
 print(divide2(20, 0))
+
+
+enum myError: Error{
+    case invalidSelection
+    case insundfjfjf(Int)
+    case outOfStack(String)
+}
+
+func sail() throws {
+    throw myError.outOfStack("卖完了")
+}
+
+do {
+    try sail()
+} catch myError.invalidSelection {
+    print("")
+} catch myError.insundfjfjf(let num) {
+    print(num)
+} catch myError.outOfStack(let str) {
+    print(str)
+} catch {
+    print(error)
+}

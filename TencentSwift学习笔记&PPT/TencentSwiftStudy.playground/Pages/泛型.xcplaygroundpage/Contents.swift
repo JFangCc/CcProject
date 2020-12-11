@@ -105,8 +105,6 @@ class Stack2: Stackable1 {
     }
 }
 
-//不透明类型 some
-
 //泛型
 func firstIndex<T: Equatable>(of valueFind: T, in array: [T]) -> Int?{
     for(index, value) in array.enumerated(){
@@ -124,3 +122,85 @@ print(index!)
 let nums = [1, 2, 3]
 let index1 = firstIndex(of: 2, in: nums)
 print(index1!)
+
+//不透明类型 some
+protocol Shape {
+    func draw() -> String
+}
+
+struct Triangle: Shape {
+    var size: Int
+    func draw() -> String {
+        var result = [String]()
+        for length in 1...size {
+            result.append(String(repeating: "*", count: length))
+        }
+        return result.joined(separator: "\n")
+    }
+}
+
+struct Square: Shape {
+    var size: Int
+    func draw() -> String {
+        var result = [String]()
+        for _ in 0...size {
+            result.append(String(repeating: "*", count: size))
+        }
+        return result.joined(separator: "\n")
+    }
+}
+
+struct FlippedShare<T: Shape> : Shape {
+    var shape: T
+    func draw() -> String {
+        let result = shape.draw().split(separator: "\n")
+        return result.reversed().joined(separator: "\n")
+    }
+}
+
+struct JoinedShare<T: Shape, U: Shape> : Shape {
+    var top: T
+    var bottom: U
+    func draw() -> String {
+        return top.draw() + "\n" + bottom.draw()
+    }
+}
+
+func makeTape() -> JoinedShare<Triangle, JoinedShare<Square, FlippedShare<Triangle>>>{
+    let t = Triangle(size: 3)
+    let s = Square(size: 3)
+    let f = FlippedShare(shape: t)
+    return JoinedShare(top: t, bottom: JoinedShare(top: s, bottom: f))
+}
+
+func makeTape1(size: Int) -> some Shape{
+//    if size == 3 {
+//        return Square(size: size)
+//    }
+    let t = Triangle(size: size)
+    let s = Square(size: size)
+    let f = FlippedShare(shape: t)
+    return JoinedShare(top: t, bottom: JoinedShare(top: s, bottom: f))
+}
+
+let make = makeTape()
+print(make.draw())
+
+let make1 = makeTape1(size: 4)
+print(make1.draw())
+
+protocol Container {
+    associatedtype item
+    var count: Int {get}
+    subscript (index: Int) -> item {get}
+}
+
+extension Array: Container{
+    
+}
+
+func makePro<T>(item: T) -> some Container {
+    [item]
+}
+
+print(makePro(item: "fang"))

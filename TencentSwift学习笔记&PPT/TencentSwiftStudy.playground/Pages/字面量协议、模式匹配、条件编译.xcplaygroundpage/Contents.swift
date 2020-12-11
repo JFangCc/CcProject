@@ -137,7 +137,7 @@ default:
 
 // 操作系统: macOS/iOS/...
 #if os(macOS) || os(iOS)
-// CPU架构: i386/x86_64/arm/arm64
+// CPU架构: i386/x86_64/armv7/armv7s/arm64
 #elseif arch(x86_64) || arch(arm64)
 // swift版本
 #elseif swift(<5) && swift(>=3)
@@ -164,17 +164,27 @@ default:
 print(#file, #line, #function)
 
 var sdsds: NSString = "dsdsdsdsd"
-sdsds.appending("3333")
-print(sdsds)
+let appending = sdsds.appending("3333")
+print(appending)
 
 var sddddd: String = "dsdsdsdsd"
-sddddd.appending("4444")
+sddddd.append("4444")
+print(sddddd)
 
+var sdddddfff = "dddddddd"
+sdddddfff.append("22222222")
+print(sdddddfff)
 
 //系统版本判断
 if #available(iOS 10, macOS 10.15.6, *){
     // *表示除了前面的条件，其他平台都支持
     print("3333333")
+}
+
+if #available(iOS 10, *){
+    print("5555555")
+}else{
+    
 }
 
 //API可用性说明——类文件前面

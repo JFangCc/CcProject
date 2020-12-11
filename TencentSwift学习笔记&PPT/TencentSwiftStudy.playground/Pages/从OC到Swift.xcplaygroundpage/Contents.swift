@@ -38,10 +38,11 @@ func swift_sum()
 //桥接文件相关
 
 //OC调用Swift
-//1、xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式为：{targetName}-Swift.h
-//2、Build Setting -> 搜索general
-//用 @objc标识要暴露给OC调的成员，或者用@objcMembers标记整个类成员都可调用
-//继承NSObject
+//1、继承NSObject
+//2、xcode已经默认生成一个用于OC调用Swift的头文件，文件名格式为：{targetName}-Swift.h
+//3、Build Setting -> 搜索general（可查看）
+//4、必须用 @objc标识要暴露给OC调的成员和构造器，或者用@objcMembers标记整个类成员都可调用
+
 
 //@objc(name)
 //可通过@objc重命名Swift暴露给OC的符号名（类名、属性名、函数名等）

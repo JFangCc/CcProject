@@ -11,12 +11,12 @@ open class Person {
     
 }
 
-// public 本项目（模块）使用，可以被其他模块访问，不允许继承、重写
+// public 可以被其他模块访问，不允许被其他模块继承、重写
 public class Person1 {
     
 }
 
-// internal 只允许在本项目中访问，不允许其他模块访问
+// internal 只允许在本项目（模块）中访问，不允许其他模块访问
 internal class Person2 {
     
 }
