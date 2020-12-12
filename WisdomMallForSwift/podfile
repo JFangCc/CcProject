@@ -1,0 +1,17 @@
+
+#source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+platform:ios,'9.0'   #指定平台与版本
+inhibit_all_warnings! #忽略引入库的所有警告
+
+target 'WisdomMallForSwift' do
+  pod 'SnapKit' #自动布局
+  pod 'Alamofire' #请求
+  pod 'SwiftyJSON' #解析
+  pod 'Kingfisher' #图片加载
+  pod 'MJRefresh'
+  pod 'KakaJSON' #模型化
+  pod 'R.swift' #资源包管理
+  pod 'MonkeyKing' #社交分享
+end
+
