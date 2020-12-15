@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WTMineViewController.swift
 //  WisdomMallForSwift
 //
 //  Created by Able-Fangjing on 2020/12/14.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WTMineViewController: WTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        title = "我的"
         // Do any additional setup after loading the view.
     }
     

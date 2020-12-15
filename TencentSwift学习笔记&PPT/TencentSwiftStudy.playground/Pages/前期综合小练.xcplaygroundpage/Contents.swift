@@ -96,3 +96,7 @@ print(number)
     print("test")
 }
 
+var num1: Int? = nil
+num1? = 10
+print(num1 as Any)
+

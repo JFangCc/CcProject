@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WTBaseViewController.swift
 //  WisdomMallForSwift
 //
 //  Created by Able-Fangjing on 2020/12/14.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WTBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.hexColor(0xf2f4f7)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.hexColor(0x333333)]
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
         // Do any additional setup after loading the view.
     }
     
