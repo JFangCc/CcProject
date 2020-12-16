@@ -39,9 +39,17 @@ class WTLoginViewController: WTBaseViewController, ValidatePhoneNumber, Validate
 
     var phoneTextField: UITextField!
     var passwordTextField: UITextField!
+    var loginSuccessBlock: ((_ name: String, _ headPic: String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        title = "登录"
+        self.setUI()
+        // Do any additional setup after loading the view.
+    }
+    
+    func setUI() {
         let logoView = UIImageView(image: R.image.logo())
         view.addSubview(logoView)
         logoView.snp.makeConstraints { (make) in
@@ -99,15 +107,18 @@ class WTLoginViewController: WTBaseViewController, ValidatePhoneNumber, Validate
         loginBtn.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.top.equalTo(passwordTextField).offset(20)
+            make.top.equalTo(passwordTextField.snp_bottom).offset(20)
             make.height.equalTo(50)
         }
-        // Do any additional setup after loading the view.
     }
     
     @objc func loginAction() {
         if validatePhoneNumber(phoneTextField.text ?? "") && validatePassWord(passwordTextField.text ?? "") {
             //登录
+            if loginSuccessBlock != nil {
+                loginSuccessBlock!("方静", "https://static001.geekbang.org/resource/image/30/86/307332b7ba9556ba1e38c358ad6aab86.jpg")
+            }
+            navigationController?.popViewController(animated: true)
         }else {
             self.showToast()
         }

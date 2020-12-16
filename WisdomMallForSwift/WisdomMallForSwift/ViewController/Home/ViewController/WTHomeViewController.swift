@@ -28,6 +28,11 @@ class WTHomeViewController: WTBaseViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hidesBottomBarWhenPushed = false
+    }
+    
     func setupUI() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -58,6 +63,15 @@ class WTHomeViewController: WTBaseViewController, UITableViewDelegate, UITableVi
             cell?.item = items[indexPath.row]
         }
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailVC = WTCourseDetailViewController()
+        let course = items[indexPath.row]
+        detailVC.product = course
+        detailVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

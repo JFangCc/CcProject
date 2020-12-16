@@ -1,19 +1,18 @@
 //
-//  WTMineViewController.swift
+//  WTIntroductionViewController.swift
 //  WisdomMallForSwift
 //
-//  Created by Able-Fangjing on 2020/12/14.
+//  Created by Able-Fangjing on 2020/12/15.
 //  Copyright © 2020 Able-Fangjing. All rights reserved.
 //
 
 import UIKit
 
-class WTMineViewController: WTBaseViewController {
+class WTIntroductionViewController: WTBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        title = "我的"
+        view.backgroundColor = .purple
         // Do any additional setup after loading the view.
     }
     

@@ -72,11 +72,16 @@ class BannerView: UIView,UICollectionViewDataSource, UICollectionViewDelegate, U
         collection.backgroundColor = .white
         collection.isPagingEnabled = true
         collection.showsHorizontalScrollIndicator = false
-        collection.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            collection.contentInsetAdjustmentBehavior = .never
+        } else {
+            // Fallback on earlier versions
+        }
         collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: BannerView.CellIden)
         collection.delegate = self
         collection.dataSource = self
         self.addSubview(collection)
+
         collection.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -131,7 +136,7 @@ class BannerView: UIView,UICollectionViewDataSource, UICollectionViewDelegate, U
         }
         return cell
     }
-    
+
     func startAutoScroll() {
         guard autoScrollInterval > 0 && timer == nil else {
             return
@@ -176,6 +181,10 @@ class BannerView: UIView,UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate.didSelectBanner(self, index: indexPath.item)
+    }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let totalPageNum = dataSource.numberOfBanners(self)
@@ -185,7 +194,22 @@ class BannerView: UIView,UICollectionViewDataSource, UICollectionViewDelegate, U
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.didSelectBanner(self, index: indexPath.item)
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.stopAutoScroll()
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let totalPageNum = dataSource.numberOfBanners(self)
+        let currentPageNum = Int((collection.contentOffset.x / collection.frame.size.width))
+        if currentPageNum >= totalPageNum + 1 {
+            collection.setContentOffset(CGPoint(x: collection.frame.size.width, y: 0), animated: false)
+        }
+        if isInfinite {
+            pageControl.currentPage = currentPageNum >= totalPageNum + 1 ? 0 : currentPageNum - 1
+        }else{
+            pageControl.currentPage = currentPageNum
+        }
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [weak self] in
+            self?.startAutoScroll();
+        }
     }
 }
