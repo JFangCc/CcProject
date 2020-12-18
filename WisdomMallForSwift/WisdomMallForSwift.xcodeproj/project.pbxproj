@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7C02DCF22589DD90008DD8B4 /* CommonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C02DCF12589DD90008DD8B4 /* CommonCell.swift */; };
+		7C02DCF4258A17D2008DD8B4 /* WTDealListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C02DCF3258A17D2008DD8B4 /* WTDealListViewController.swift */; };
+		7C02DCF6258A184B008DD8B4 /* CommonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C02DCF5258A184B008DD8B4 /* CommonList.swift */; };
+		7C02DCF8258A24D8008DD8B4 /* DealListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C02DCF7258A24D8008DD8B4 /* DealListCell.swift */; };
 		7C09355E2584A2910082C8D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C09355D2584A2910082C8D8 /* AppDelegate.swift */; };
 		7C0935602584A2910082C8D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C09355F2584A2910082C8D8 /* SceneDelegate.swift */; };
 		7C0935622584A2910082C8D8 /* WTTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0935612584A2910082C8D8 /* WTTabBarController.swift */; };
@@ -75,6 +78,9 @@
 		25B3E605EC4018E767E278B9 /* Pods-WisdomMallForSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomMallForSwift.release.xcconfig"; path = "Target Support Files/Pods-WisdomMallForSwift/Pods-WisdomMallForSwift.release.xcconfig"; sourceTree = "<group>"; };
 		28B03DCACDCB2645BBCDB2CC /* Pods-WisdomMallForSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WisdomMallForSwift.debug.xcconfig"; path = "Target Support Files/Pods-WisdomMallForSwift/Pods-WisdomMallForSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		7C02DCF12589DD90008DD8B4 /* CommonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCell.swift; sourceTree = "<group>"; };
+		7C02DCF3258A17D2008DD8B4 /* WTDealListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTDealListViewController.swift; sourceTree = "<group>"; };
+		7C02DCF5258A184B008DD8B4 /* CommonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonList.swift; sourceTree = "<group>"; };
+		7C02DCF7258A24D8008DD8B4 /* DealListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealListCell.swift; sourceTree = "<group>"; };
 		7C09355A2584A2910082C8D8 /* WisdomMallForSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WisdomMallForSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C09355D2584A2910082C8D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C09355F2584A2910082C8D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7CFAAA1425872A2500DEDA8A /* WTMineViewController.swift */,
+				7C02DCF3258A17D2008DD8B4 /* WTDealListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -173,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				7C02DCF12589DD90008DD8B4 /* CommonCell.swift */,
+				7C02DCF5258A184B008DD8B4 /* CommonList.swift */,
+				7C02DCF7258A24D8008DD8B4 /* DealListCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -559,6 +568,7 @@
 				7CFAAA1525872A2500DEDA8A /* WTMineViewController.swift in Sources */,
 				7C0935622584A2910082C8D8 /* WTTabBarController.swift in Sources */,
 				7C6C6F102588541900C75D86 /* CourseCell.swift in Sources */,
+				7C02DCF8258A24D8008DD8B4 /* DealListCell.swift in Sources */,
 				7CFAAA1325872A1400DEDA8A /* WTHomeViewController.swift in Sources */,
 				7C09355E2584A2910082C8D8 /* AppDelegate.swift in Sources */,
 				7CFAAA0E2587075500DEDA8A /* WTBaseViewController.swift in Sources */,
@@ -568,11 +578,13 @@
 				7C0935BD2584AC330082C8D8 /* WTFakeData.swift in Sources */,
 				7C0935C32584B0290082C8D8 /* UIColorExtension.swift in Sources */,
 				7C0935B92584AB450082C8D8 /* WTCourseModel.swift in Sources */,
+				7C02DCF6258A184B008DD8B4 /* CommonList.swift in Sources */,
 				7CFAAA1725872C0600DEDA8A /* ViewController.swift in Sources */,
 				7C0935602584A2910082C8D8 /* SceneDelegate.swift in Sources */,
 				7C0935BB2584ABE60082C8D8 /* WTDeal.swift in Sources */,
 				7C0935B62584A82F0082C8D8 /* R.generated.swift in Sources */,
 				7CCD51BE25889E3400A4BCAA /* WTCateViewController.swift in Sources */,
+				7C02DCF4258A17D2008DD8B4 /* WTDealListViewController.swift in Sources */,
 				7CFAAA10258708D100DEDA8A /* WTLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

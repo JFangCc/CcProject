@@ -1,8 +1,8 @@
 //
-//  WTCourseListView.swift
+//  DealListCell.swift
 //  WisdomMallForSwift
 //
-//  Created by Able-Fangjing on 2020/12/15.
+//  Created by Able-Fangjing on 2020/12/16.
 //  Copyright © 2020 Able-Fangjing. All rights reserved.
 //
 
@@ -10,24 +10,24 @@ import Foundation
 import UIKit
 import SnapKit
 
-class CourseCell: CommonListCell<Course> {
+class DealListCell: CommonListCell<Deal> {
     
-    let priceLabel: UILabel
+    let progressLabel: UILabel
     let productImageView: UIImageView
        
-    override var item: Course? {
+    override var item: Deal? {
            didSet {
                if let p = self.item {
-                   self.productImageView.kf.setImage(with: URL(string: p.imageUrl))
-                   self.textLabel?.text = p.name
-                   self.detailTextLabel?.text = p.desc
-                   self.priceLabel.text = "￥\(p.price)"
+                self.productImageView.kf.setImage(with: URL(string: p.course.imageUrl))
+                self.textLabel?.text = p.course.name
+                self.detailTextLabel?.text = p.course.desc
+                   self.progressLabel.text = "已经学习￥\(p.progress)%"
                }
            }
        }
        
     required init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-           priceLabel = UILabel(frame: .zero)
+           progressLabel = UILabel(frame: .zero)
            productImageView = UIImageView()
            super.init(style: style, reuseIdentifier: reuseIdentifier)
            self.setupViews()
@@ -37,12 +37,12 @@ class CourseCell: CommonListCell<Course> {
            textLabel?.textColor = UIColor.hexColor(0x333333)
            detailTextLabel?.textColor = UIColor.hexColor(0x999999)
            detailTextLabel?.numberOfLines = 2
-           priceLabel.textColor = UIColor.hexColor(0xe23b41)
-           priceLabel.font = UIFont.systemFont(ofSize: 15)
+           progressLabel.textColor = UIColor.hexColor(0xe23b41)
+           progressLabel.font = UIFont.systemFont(ofSize: 15)
            productImageView.contentMode = .scaleAspectFill
            productImageView.clipsToBounds = true
            
-           contentView.addSubview(priceLabel)
+           contentView.addSubview(progressLabel)
            contentView.addSubview(productImageView)
            
            productImageView.snp.makeConstraints({ (make) in
@@ -58,7 +58,7 @@ class CourseCell: CommonListCell<Course> {
                make.right.equalTo(contentView).offset(-20)
            })
            
-           priceLabel.snp.makeConstraints { (make) in
+           progressLabel.snp.makeConstraints { (make) in
                make.left.equalTo(textLabel!)
                make.centerY.equalTo(contentView)
            }

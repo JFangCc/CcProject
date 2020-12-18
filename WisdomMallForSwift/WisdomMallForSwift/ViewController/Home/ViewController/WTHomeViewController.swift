@@ -38,6 +38,7 @@ class WTHomeViewController: WTBaseViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -57,7 +58,7 @@ class WTHomeViewController: WTBaseViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView .dequeueReusableCell(withIdentifier: "cellId") as? CourseCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as? CourseCell
         if cell == nil {
             cell = CourseCell(style: .subtitle, reuseIdentifier: "cellId")
             cell?.item = items[indexPath.row]

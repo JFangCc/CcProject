@@ -70,7 +70,7 @@ class WTMineViewController: WTBaseViewController {
     }
     
     @objc func didClickPurchasedCell() {
-        let dealVC = WTCourseDetailViewController()
+        let dealVC = WTDealListViewController()
         dealVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(dealVC, animated: true)
     }
@@ -89,7 +89,7 @@ class WTMineViewController: WTBaseViewController {
         purchasedCell = CommonCell()
         purchasedCell.icon = R.image.icon_between()
         purchasedCell.title = "已购"
-//        purchasedCell.addTarget(self, action: #selector(didClickPurchasedCell), for: .touchUpInside)
+        purchasedCell.addTarget(self, action: #selector(didClickPurchasedCell), for: .touchUpInside)
         view.addSubview(purchasedCell)
         purchasedCell.snp.makeConstraints { (make) in
             make.top.equalTo(accountCell.snp_bottom)
