@@ -10,9 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Person : NSObject
+@interface Person : NSObject<NSCoding>
 @property(nonatomic,strong)NSString *name;
-
+@property(nonatomic,assign)NSInteger age;
+@property(nonatomic,strong)NSString *name1;
+@property(nonatomic,strong)NSString *name2;
+@property(nonatomic,strong)NSString *name3;
 @end
 
 NS_ASSUME_NONNULL_END

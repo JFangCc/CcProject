@@ -20,7 +20,7 @@
 //    NSLog(@"%@",NSStringFromSelector(sel));
     //动态添加方法
     //IMP本质是函数指针
-    class_addMethod(self, sel, (IMP)hhhhhhh, "");
+    class_addMethod(self, sel, (IMP)hhhhhhh, "v@:@");
     return [super resolveInstanceMethod:sel];
 }
 

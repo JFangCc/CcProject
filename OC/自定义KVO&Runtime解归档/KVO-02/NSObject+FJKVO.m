@@ -14,6 +14,7 @@
 - (void)FJ_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void *)context{
     NSString *oldName = NSStringFromClass(self.class);
     NSString *newName = [@"FJKVO_" stringByAppendingString:oldName];
+    //新建一个子类
     Class newClass = objc_allocateClassPair(self.class, newName.UTF8String, 0);
     //注册子类
     objc_registerClassPair(newClass);

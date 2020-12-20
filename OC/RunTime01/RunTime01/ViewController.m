@@ -26,13 +26,12 @@
     // Do any additional setup after loading the view.
     //OC 方法调用 消息机制！！
     Person *p = [[Person alloc] init];
-//    [p performSelector:@selector(eat) withObject:@"hanbao"];
+    [p performSelector:@selector(eat) withObject:@"hanbao"];
     //消息发送
     objc_msgSend(p, @selector(eat),@"hanbao");
-    
-//    NSURL *url = [NSURL URLWithString:@"https://www.dsdsdsd.com"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    NSLog(@"%@",request);
+    NSURL *url = [NSURL URLWithString:@"https://www.dsds大点的dsd.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSLog(@"%@",request);
     
 }
 
