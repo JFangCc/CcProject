@@ -28,7 +28,6 @@
         const char *name = ivar_getName(ivar);
         NSString *key = [NSString stringWithUTF8String:name];
         id value = [self valueForKey:key];
-        //归档
         [coder encodeObject:value forKey:key];
     }
     free(list);
@@ -45,7 +44,6 @@
             Ivar ivar = list[i];
             NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
             id value = [coder decodeObjectForKey:key];
-            //解档
             [self setValue:value forKey:key];
         }
         free(list);
