@@ -22,6 +22,7 @@ if let dasas = fff(rawValue: 5) {
 }else {
     print("no")
 }
+print(fff.fffd.rawValue)
 
 //空合并运算符 ??
 //返回值和 b、c 类型保持一致

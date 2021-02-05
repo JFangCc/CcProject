@@ -77,7 +77,6 @@ class Student1: Person1 {
     var score: Int = 0
     override init(age: Int) {
         super.init(age: age)
-        
     }
 }
 

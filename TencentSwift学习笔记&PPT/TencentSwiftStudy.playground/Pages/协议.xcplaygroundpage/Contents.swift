@@ -17,6 +17,7 @@ protocol Drawable {
 class Person: Drawable {
     var x: Int = 0
     var y: Int = 0
+    
     func drwa() {
         print("")
     }
@@ -38,7 +39,10 @@ class Person1: Drawable {
         }
     }
     var y: Int {
-        0
+        get { 0 }
+        set {
+            
+        }
     }
     func drwa() {
         print("")

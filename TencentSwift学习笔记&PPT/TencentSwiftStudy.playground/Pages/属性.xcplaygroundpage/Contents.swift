@@ -63,11 +63,11 @@ enum Yuan: Int {
         switch self {
         case .a:
             return 11
-            case .b:
+        case .b:
             return 22
-            case .c:
+        case .c:
             return 33
-            case .d:
+        case .d:
             return 44
         }
     }
